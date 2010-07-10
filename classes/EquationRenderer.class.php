@@ -17,7 +17,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 class EquationRenderer {
-	public function html(Equation $eq, INumberFormatter $formatter, IUnknownRenderer $unknownRenderer) {
+	/**
+	 * Render given equation with given helpers
+	 *
+	 * @param $eq Equation object
+	 * @param $formatter INumberFormatter number formatter
+	 * @param $unknownRenderer IUnknownRenderer unknown renderer
+	 * @return string with equation rendered. If error, returns null
+	 */
+	public function render(Equation $eq, INumberFormatter $formatter, IUnknownRenderer $unknownRenderer) {
 		$result = null;
 		for($i = $eq->getDegree(); $i >= 0; $i--) {
 			$coeff = $eq->coeff($i);

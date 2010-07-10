@@ -19,22 +19,40 @@
 class Equation {
 	private $_coeffs = null;
 
+	/**
+	 * Constructor. Receives coefficient values in descent order: highest 
+	 * order, first position
+	 * 
+	 * @param $coeffs array of float
+	 */
 	public function __construct(Array $coeffs) {
 		$this->_coeffs = $coeffs;
 	}
 	
+	/**
+	 * Returns degree of the equation
+	 * 
+	 *  @return int
+	 */
 	public function getDegree() {
 		return count($this->_coeffs) - 1;
 	}
 	
+	/**
+	 * Evaluates equation with given x value
+	 *  
+	 * @param $x float
+	 * @return float result of the evaluation
+	 */
 	public function evaluate($x) {
 		$value = (float)$x;
 
-		// Effient when 0 given
+		// Efficient when 0 given
 		if($value == 0) {
 			return $this->_coeffs[$this->getDegree()];
 		}
 
+		// Horner evaluation
 		$result = 0;
 		foreach($this->_coeffs AS $coeff) {
 			$result = $result * $value + $coeff;
@@ -43,6 +61,12 @@ class Equation {
 		return $result;
 	}
 
+	/**
+	 * Returns coefficient of given degree
+	 * 
+	 * @param $degree int
+	 * @return float coefficient value
+	 */
 	public function coeff($degree) {
 		return $this->_coeffs[$this->getDegree() - $degree];
 	}
