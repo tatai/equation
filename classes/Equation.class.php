@@ -68,6 +68,10 @@ class Equation {
 	 * @return float coefficient value
 	 */
 	public function coeff($degree) {
+		if($this->getDegree() < $degree) {
+			return 0;
+		}
+		
 		return $this->_coeffs[$this->getDegree() - $degree];
 	}
 }

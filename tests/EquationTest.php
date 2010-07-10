@@ -71,4 +71,11 @@ class EquationTest extends PHPUnit_Framework_TestCase {
 			$this->assertEquals($this->_coeffs[$degree - $i], $this->_equation->coeff($i));
 		}
 	}
+	
+	/**
+	 * @test
+	 */
+	public function whenAskingForANonExistingCoefficientReturnsZero() {
+		$this->assertEquals(0, $this->_equation->coeff($this->_equation->getDegree() + 1));
+	}
 }
