@@ -16,6 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+include_once(dirname(__FILE__) . '/IUnknownRenderer.class.php');
 class UnknownRendererHtml implements IUnknownRenderer {
 	public function render($degree) {
 		if($degree == 0) {

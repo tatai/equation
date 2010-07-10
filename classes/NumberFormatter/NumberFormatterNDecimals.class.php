@@ -16,6 +16,7 @@
  * You should have received a copy of the GNU Affero General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+include_once(dirname(__FILE__) . '/INumberFormatter.class.php');
 class NumberFormatterNDecimals implements INumberFormatter {
 	private $_decimals = null;
 
